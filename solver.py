@@ -3,9 +3,13 @@ import requests
 import hashlib
 import json
 import time
+import os
+
+dirname = os.path.dirname(__file__)
 
 URL = 'http://www.humansnotinvited.com/'
-ChromeDriverPath = 'C:\\Users\\Tony\\Desktop\\HumansNotInvitedSolver\\ChromeDriver.exe'
+ChromeDriverPath = os.path.join(dirname, 'ChromeDriver.exe')
+PathToDict = os.path.join(dirname, 'solver_memory.json')
 XPathToCategoryName = '/html/body/div/div/div/div/p/strong[1]'
 
 def get_number_matches(category_name, img_hash, memory):
@@ -17,7 +21,7 @@ def get_number_matches(category_name, img_hash, memory):
     else:
         return 0
 
-with open('D:\\solver_memory.json', 'r') as file:
+with open(PathToDict, 'r') as file:
     memory = json.load(file)
 
 driver = webdriver.Chrome(ChromeDriverPath)

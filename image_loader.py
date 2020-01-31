@@ -2,8 +2,12 @@ from bs4 import BeautifulSoup
 import requests
 import hashlib
 import json
+import os
+
+dirname = os.path.dirname(__file__)
 
 URL = 'http://www.humansnotinvited.com/'
+PathToDict = os.path.join(dirname, 'solver_memory.json')
 
 def add_hash_to_memory(category_name, img_hash):
     if category_name in memory:
@@ -17,7 +21,7 @@ def add_hash_to_memory(category_name, img_hash):
         memory[category_name] = { img_hash: 1 }
         print('add new category {0}'.format(category_name))
 
-with open('D:\\solver_memory.json', 'r') as file:
+with open(PathToDict, 'r') as file:
     memory = json.load(file)
 
 counter = 0
@@ -42,5 +46,5 @@ while counter < 2:
         img_hash = str(hashlib.md5(img_data).hexdigest())
         add_hash_to_memory(category_name, img_hash)
 
-with open('D:\\solver_memory.json', 'w') as file:
+with open(PathToDict, 'w') as file:
     json.dump(memory, file, indent=2)
