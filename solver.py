@@ -8,7 +8,7 @@ import os
 dirname = os.path.dirname(__file__)
 
 URL = 'http://www.humansnotinvited.com/'
-ChromeDriverPath = os.path.join(dirname, 'ChromeDriver.exe')
+ChromeDriverPath = os.path.join(dirname, 'chromedriver.exe')
 PathToDict = os.path.join(dirname, 'solver_memory.json')
 XPathToCategoryName = '/html/body/div/div/div/div/p/strong[1]'
 
