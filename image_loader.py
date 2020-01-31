@@ -26,7 +26,7 @@ with open(PathToDict, 'r') as file:
 
 counter = 0
 
-while counter < 2:
+while counter < 1000:
     print(15 * '-')
     counter += 1
 
